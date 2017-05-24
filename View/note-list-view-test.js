@@ -1,10 +1,12 @@
 (function(exports) {
-  function testAddList() {
-    var note = new Note();
+  function testShowList() {
     var list = new List();
     list.addList("new note");
-    assert.isTrue(list.array[0] === "new note" );
+    var showlist = new ShowList();
+    showlist.notelist = list;
+      assert.isTrue(showlist.viewList() === "<ul><li><div>new note</div></li></ul>");
+
   };
 
-  testAddList();
+  testShowList();
 })(this);
